@@ -1,0 +1,46 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile stored upon Google Sign-In with Firebase Auth",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "role": { "type": "string", "enum": ["BUYER", "VERIFIER", "DEVELOPER", "ADMIN"] },
+        "walletAddress": { "type": "string" },
+        "createdAt": { "type": "number" },
+        "lastLoginAt": { "type": "number" }
+      },
+      "required": ["uid", "email"]
+    },
+    "UserPriceAlert": {
+      "title": "UserPriceAlert",
+      "description": "User carbon project price alert preferences",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "projectId": { "type": "string" },
+        "projectName": { "type": "string" },
+        "targetPriceUSD": { "type": "number" },
+        "targetPriceETH": { "type": "number" },
+        "createdAt": { "type": "number" },
+        "active": { "type": "boolean" }
+      },
+      "required": ["id", "userId", "projectName", "targetPriceUSD"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Authenticated user profiles"
+    },
+    "/users/{userId}/alerts/{alertId}": {
+      "schema": "UserPriceAlert",
+      "description": "User carbon market price alerts"
+    }
+  }
+}

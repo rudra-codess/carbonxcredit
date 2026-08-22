@@ -1,0 +1,8 @@
+{
+  "name": "CarbonX Credits",
+  "description": "Blockchain-based carbon credit marketplace bringing transparency, trust, and on-chain traceability to global climate action.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
